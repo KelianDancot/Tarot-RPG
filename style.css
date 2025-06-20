@@ -1,0 +1,43 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fdf6e3;
+  color: #333;
+  text-align: center;
+  padding: 2em;
+}
+
+.container {
+  max-width: 800px;
+  margin: auto;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 1.1em;
+  background-color: #8e44ad;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 2em;
+}
+
+button:hover {
+  background-color: #732d91;
+}
+
+#cartes-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+  text-align: left;
+  background: #fff;
+  padding: 2em;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.carte {
+  border-left: 6px solid #8e44ad;
+  padding-left: 1em;
+}
