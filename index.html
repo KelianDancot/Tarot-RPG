@@ -7,12 +7,32 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <h1>Tirage des 3 Cartes</h1>
-    <button onclick="tirerCartes()">Tirer les cartes</button>
-    <div id="cartes-container"></div>
+  <div id="home-screen" class="full-screen">
+    <img src="img\bg.jpg" id="background-hand" alt="main tenant une carte">
+    <div class="ui-panel">
+      <label for="card-count">Nombre de cartes :</label>
+      <select id="card-count">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+
+      <label for="mode">Mode :</label>
+      <select id="mode">
+        <option value="combat">Combat</option>
+        <option value="voyage">Voyage</option>
+      </select>
+    </div>
+    <img src="img\dosCarte.png" height="700" width="400" id="draw-button" alt="Carte dos">
   </div>
 
+  <div id="result-screen" class="full-screen hidden">
+    <div id="card-zone"></div>
+  </div>
+
+  <script src="cards.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
