@@ -1,470 +1,470 @@
-const cardDeck = [
+const tarotDeck = [
   {
     "name": "Le Mat",
     "combat": "Tu ignores les attaques d'opportunité ce tour.",
     "voyage": "Tu es perçu comme inoffensif. Tout le monde te sous-estime.",
-    "image": "img/major_arcana/TheFool.jpg"
+    "image": "img/major_arcana/TheFool.png"
   },
   {
     "name": "Le Bateleur",
     "combat": "Tu peux copier un sort de niveau 1 lancé autour de toi.",
     "voyage": "Tu gagnes la confiance immédiate dans toute nouvelle rencontre.",
-    "image": "img/major_arcana/TheMagician.jpg"
+    "image": "img/major_arcana/TheMagician.png"
   },
   {
     "name": "La Papesse",
     "combat": "Tu gagnes une barrière psychique de +2 en sauvegarde de Sagesse.",
     "voyage": "Tu es consulté comme sage même si tu n’as rien dit.",
-    "image": "img/major_arcana/TheHighPriestess.jpg"
+    "image": "img/major_arcana/TheHighPriestess.png"
   },
   {
     "name": "L’Impératrice",
     "combat": "Tes sorts de soin soignent le double pendant 1 minute.",
     "voyage": "On te traite avec déférence partout où tu passes.",
-    "image": "img/major_arcana/TheEmpress.jpg"
+    "image": "img/major_arcana/TheEmpress.png"
   },
   {
     "name": "L’Empereur",
     "combat": "Tu imposes un test de sauvegarde à tout ennemi proche (Effroi).",
     "voyage": "On t’écoute comme un leader. Sauf les autres leaders.",
-    "image": "img/major_arcana/TheEmperor.jpg"
+    "image": "img/major_arcana/TheEmperor.png"
   },
   {
     "name": "Le Pape",
     "combat": "Tes alliés regagnent un slot de niveau 1 au choix.",
     "voyage": "Tu es vu comme un guide spirituel. Les religieux te suivent.",
-    "image": "img/major_arcana/TheHierophant.jpg"
+    "image": "img/major_arcana/TheHierophant.png"
   },
   {
     "name": "L’Amoureux",
     "combat": "Deux ennemis se trompent de cible au prochain tour.",
     "voyage": "Un lien romantique ou étrange se crée autour de toi.",
-    "image": "img/major_arcana/TheLovers.jpg"
+    "image": "img/major_arcana/TheLovers.png"
   },
   {
     "name": "Le Chariot",
     "combat": "Tu gagnes +2 CA jusqu’à la fin du combat.",
     "voyage": "Tu reçois une aide de transport ou une monture inattendue.",
-    "image": "img/major_arcana/TheChariot.jpg"
+    "image": "img/major_arcana/TheChariot.png"
   },
   {
     "name": "La Justice",
     "combat": "Tu forces un ennemi à refaire un jet réussi.",
     "voyage": "Un conflit social se tourne immédiatement en ta faveur.",
-    "image": "img/major_arcana/Justice.jpg"
+    "image": "img/major_arcana/Justice.png"
   },
   {
     "name": "L’Hermite",
     "combat": "Tu es invisible 1 tour si tu ne bouges pas.",
     "voyage": "Tu es ignoré par tous sauf ceux en détresse ou besoin.",
-    "image": "img/major_arcana/TheHermit.jpg"
+    "image": "img/major_arcana/TheHermit.png"
   },
   {
     "name": "La Roue de Fortune",
     "combat": "Relance gratuite d’un jet raté (coût : 1d6 PV).",
     "voyage": "Choisis un événement aléatoire : un bon, un neutre, un mauvais.",
-    "image": "img/major_arcana/WheelOfFortune.jpg"
+    "image": "img/major_arcana/WheelOfFortune.png"
   },
   {
     "name": "La Force",
     "combat": "Avantage à tous les tests de force ce combat.",
     "voyage": "Tout ton groupe reçoit +1 à un test social de son choix.",
-    "image": "img/major_arcana/Strength.jpg"
+    "image": "img/major_arcana/Strength.png"
   },
   {
     "name": "Le Pendu",
     "combat": "Tu lances un sort gratuitement, mais agis en dernier au tour suivant.",
     "voyage": "Tu reçois une intuition soudaine sur une situation bloquée.",
-    "image": "img/major_arcana/TheHangedMan.jpg"
+    "image": "img/major_arcana/TheHangedMan.png"
   },
   {
     "name": "La Mort",
     "combat": "Ton prochain sort inflige le double des dégâts (tu perds 1d10 PV).",
     "voyage": "Un événement important se termine, un nouveau commence.",
-    "image": "img/major_arcana/Death.jpg"
+    "image": "img/major_arcana/Death.png"
   },
   {
     "name": "Tempérance",
     "combat": "Tu supprimes une condition négative sur toi ou un allié.",
     "voyage": "Une tension est suspendue : tous se calment pendant 1 minute.",
-    "image": "img/major_arcana/Temperance.jpg"
+    "image": "img/major_arcana/Temperance.png"
   },
   {
     "name": "Le Diable",
     "combat": "Tes attaques infligent le double, mais tu es à découvert.",
     "voyage": "Un mensonge, un désir ou une vérité cachée surgit autour de toi.",
-    "image": "img/major_arcana/TheDevil.jpg"
+    "image": "img/major_arcana/TheDevil.png"
   },
   {
     "name": "La Tour",
     "combat": "Explosion magique autour de toi : 2d8 dégâts dans un rayon de 3m.",
     "voyage": "Un secret ou un complot est révélé brutalement.",
-    "image": "img/major_arcana/TheTower.jpg"
+    "image": "img/major_arcana/TheTower.png"
   },
   {
     "name": "L’Étoile",
     "combat": "Tous les alliés reprennent 1d8 PV et 1 slot mineur.",
     "voyage": "Quelqu’un t’idéalise ou veut te suivre.",
-    "image": "img/major_arcana/TheStar.jpg"
+    "image": "img/major_arcana/TheStar.png"
   },
   {
     "name": "La Lune",
     "combat": "Tu infliges désavantage à un ennemi ciblé jusqu'à son prochain tour.",
     "voyage": "Tu devines un mensonge ou une intention cachée.",
-    "image": "img/major_arcana/TheMoon.jpg"
+    "image": "img/major_arcana/TheMoon.png"
   },
   {
     "name": "Le Soleil",
     "combat": "Tous les alliés proches ont +1 à tout pendant 2 tours.",
     "voyage": "Tous les PNJ deviennent bienveillants temporairement.",
-    "image": "img/major_arcana/TheSun.jpg"
+    "image": "img/major_arcana/TheSun.png"
   },
   {
     "name": "Le Jugement",
     "combat": "Tu rejoues immédiatement après ce tour si tu réussis un test de CHA.",
     "voyage": "Un élément de ton passé resurgit — mais pour te servir.",
-    "image": "img/major_arcana/Judgement.jpg"
+    "image": "img/major_arcana/Judgement.png"
   },
   {
     "name": "Le Monde",
     "combat": "Tu choisis un effet parmi 3 autres cartes révélées.",
     "voyage": "Tu es en harmonie avec l’environnement et le monde t’aide.",
-    "image": "img/major_arcana/TheWorld.jpg"
+    "image": "img/major_arcana/TheWorld.png"
   },
   {
     "name": "As de Coupes",
     "combat": "Tu soignes 1 PV à un allié ou à toi-même.",
     "voyage": "Tu gagnes temporairement +1 en Sagesse.",
-    "image": "img/wisdom/AceWisdom.jpg"
+    "image": "img/wisdom/AceWisdom.png"
   },
   {
     "name": "Deux de Coupes",
     "combat": "Tu soignes 1d2 PV à un allié ou à toi-même.",
     "voyage": "Tu gagnes temporairement +1 en Sagesse.",
-    "image": "img/wisdom/2Wisdom.jpg"
+    "image": "img/wisdom/2Wisdom.png"
   },
   {
     "name": "Trois de Coupes",
     "combat": "Tu soignes 1d3 PV à un allié ou à toi-même.",
     "voyage": "Tu gagnes temporairement +1 en Sagesse.",
-    "image": "img/wisdom/3Wisdom.jpg"
+    "image": "img/wisdom/3Wisdom.png"
   },
   {
     "name": "Quatre de Coupes",
     "combat": "Tu soignes 1d4 PV à un allié ou à toi-même.",
     "voyage": "Tu gagnes temporairement +1 en Sagesse.",
-    "image": "img/wisdom/4Wisdom.jpg"
+    "image": "img/wisdom/4Wisdom.png"
   },
   {
     "name": "Cinq de Coupes",
     "combat": "Tu soignes 1d5 PV à un allié ou à toi-même.",
     "voyage": "Tu gagnes temporairement +1 en Sagesse.",
-    "image": "img/wisdom/5Wisdom.jpg"
+    "image": "img/wisdom/5Wisdom.png"
   },
   {
     "name": "Six de Coupes",
     "combat": "Tu soignes 1d6 PV à un allié ou à toi-même.",
     "voyage": "Tu gagnes temporairement +1 en Sagesse.",
-    "image": "img/wisdom/6Wisdom.jpg"
+    "image": "img/wisdom/6Wisdom.png"
   },
   {
     "name": "Sept de Coupes",
     "combat": "Tu soignes 1d7 PV à un allié ou à toi-même.",
     "voyage": "Tu gagnes temporairement +1 en Sagesse.",
-    "image": "img/wisdom/7Wisdom.jpg"
+    "image": "img/wisdom/7Wisdom.png"
   },
   {
     "name": "Huit de Coupes",
     "combat": "Tu soignes 1d8 PV à un allié ou à toi-même.",
     "voyage": "Tu gagnes temporairement +1 en Sagesse.",
-    "image": "img/wisdom/8Wisdom.jpg"
+    "image": "img/wisdom/8Wisdom.png"
   },
   {
     "name": "Neuf de Coupes",
     "combat": "Tu soignes 1d9 PV à un allié ou à toi-même.",
     "voyage": "Tu gagnes temporairement +1 en Sagesse.",
-    "image": "img/wisdom/9Wisdom.jpg"
+    "image": "img/wisdom/9Wisdom.png"
   },
   {
     "name": "Dix de Coupes",
     "combat": "Tu soignes 1d10 PV à un allié ou à toi-même.",
     "voyage": "Tu gagnes temporairement +1 en Sagesse.",
-    "image": "img/wisdom/10Wisdom.jpg"
+    "image": "img/wisdom/10Wisdom.png"
   },
   {
     "name": "Valet de Coupes",
     "combat": "Tu soignes 2d5 PV à un allié ou à toi-même.",
     "voyage": "Tu gagnes temporairement +1 en Sagesse.",
-    "image": "img/wisdom/PageWisdom.jpg"
+    "image": "img/wisdom/PageWisdom.png"
   },
   {
     "name": "Cavalier de Coupes",
     "combat": "Tu soignes 2d6 PV à un allié ou à toi-même.",
     "voyage": "Tu gagnes temporairement +1 en Sagesse.",
-    "image": "img/wisdom/KnightWisdom.jpg"
+    "image": "img/wisdom/KnightWisdom.png"
   },
   {
     "name": "Reine de Coupes",
     "combat": "Tu soignes 2d8 PV à un allié ou à toi-même.",
     "voyage": "Tu gagnes temporairement +1 en Sagesse.",
-    "image": "img/wisdom/QueenWisdom.jpg"
+    "image": "img/wisdom/QueenWisdom.png"
   },
   {
     "name": "Roi de Coupes",
     "combat": "Tu soignes 3d5 PV à un allié ou à toi-même.",
     "voyage": "Tu gagnes temporairement +1 en Sagesse.",
-    "image": "img/wisdom/KingWisdom.jpg"
+    "image": "img/wisdom/KingWisdom.png"
   },
   {
     "name": "As de Épées",
     "combat": "Ton prochain jet d’attaque obtient un bonus de +2.",
     "voyage": "Tu gagnes temporairement +1 en Intelligence.",
-    "image": "img/intelligence/AceIntelligence.jpg"
+    "image": "img/intelligence/AceIntelligence.png"
   },
   {
     "name": "Deux de Épées",
     "combat": "Ton prochain jet d’attaque obtient un bonus de +2.",
     "voyage": "Tu gagnes temporairement +1 en Intelligence.",
-    "image": "img/intelligence/2Intelligence.jpg"
+    "image": "img/intelligence/2Intelligence.png"
   },
   {
     "name": "Trois de Épées",
     "combat": "Ton prochain jet d’attaque obtient un bonus de +2.",
     "voyage": "Tu gagnes temporairement +1 en Intelligence.",
-    "image": "img/intelligence/3Intelligence.jpg"
+    "image": "img/intelligence/3Intelligence.png"
   },
   {
     "name": "Quatre de Épées",
     "combat": "Ton prochain jet d’attaque obtient un bonus de +2.",
     "voyage": "Tu gagnes temporairement +1 en Intelligence.",
-    "image": "img/intelligence/4Intelligence.jpg"
+    "image": "img/intelligence/4Intelligence.png"
   },
   {
     "name": "Cinq de Épées",
     "combat": "Ton prochain jet d’attaque obtient un bonus de +2.",
     "voyage": "Tu gagnes temporairement +1 en Intelligence.",
-    "image": "img/intelligence/5Intelligence.jpg"
+    "image": "img/intelligence/5Intelligence.png"
   },
   {
     "name": "Six de Épées",
     "combat": "Ton prochain jet d’attaque obtient un bonus de +2.",
     "voyage": "Tu gagnes temporairement +1 en Intelligence.",
-    "image": "img/intelligence/6Intelligence.jpg"
+    "image": "img/intelligence/6Intelligence.png"
   },
   {
     "name": "Sept de Épées",
     "combat": "Ton prochain jet d’attaque obtient un bonus de +2.",
     "voyage": "Tu gagnes temporairement +1 en Intelligence.",
-    "image": "img/intelligence/7Intelligence.jpg"
+    "image": "img/intelligence/7Intelligence.png"
   },
   {
     "name": "Huit de Épées",
     "combat": "Ton prochain jet d’attaque obtient un bonus de +2.",
     "voyage": "Tu gagnes temporairement +1 en Intelligence.",
-    "image": "img/intelligence/8Intelligence.jpg"
+    "image": "img/intelligence/8Intelligence.png"
   },
   {
     "name": "Neuf de Épées",
     "combat": "Ton prochain jet d’attaque obtient un bonus de +2.",
     "voyage": "Tu gagnes temporairement +1 en Intelligence.",
-    "image": "img/intelligence/9Intelligence.jpg"
+    "image": "img/intelligence/9Intelligence.png"
   },
   {
     "name": "Dix de Épées",
     "combat": "Ton prochain jet d’attaque obtient un bonus de +2.",
     "voyage": "Tu gagnes temporairement +1 en Intelligence.",
-    "image": "img/intelligence/10Intelligence.jpg"
+    "image": "img/intelligence/10Intelligence.png"
   },
   {
     "name": "Valet de Épées",
     "combat": "Ton prochain jet d’attaque obtient un bonus de +2.",
     "voyage": "Tu gagnes temporairement +1 en Intelligence.",
-    "image": "img/intelligence/PageIntelligence.jpg"
+    "image": "img/intelligence/PageIntelligence.png"
   },
   {
     "name": "Cavalier de Épées",
     "combat": "Ton prochain jet d’attaque obtient un bonus de +2.",
     "voyage": "Tu gagnes temporairement +1 en Intelligence.",
-    "image": "img/intelligence/KnightIntelligence.jpg"
+    "image": "img/intelligence/KnightIntelligence.png"
   },
   {
     "name": "Reine de Épées",
     "combat": "Ton prochain jet d’attaque obtient un bonus de +2.",
     "voyage": "Tu gagnes temporairement +1 en Intelligence.",
-    "image": "img/intelligence/QueenIntelligence.jpg"
+    "image": "img/intelligence/QueenIntelligence.png"
   },
   {
     "name": "Roi de Épées",
     "combat": "Ton prochain jet d’attaque obtient un bonus de +2.",
     "voyage": "Tu gagnes temporairement +1 en Intelligence.",
-    "image": "img/intelligence/KingIntelligence.jpg"
+    "image": "img/intelligence/KingIntelligence.png"
   },
   {
     "name": "As de Bâtons",
     "combat": "Ton prochain sort est amplifié ou plus rapide.",
     "voyage": "Tu gagnes temporairement +1 en Force.",
-    "image": "img/strength/AceStrength.jpg"
+    "image": "img/strength/AceStrength.png"
   },
   {
     "name": "Deux de Bâtons",
     "combat": "Ton prochain sort est amplifié ou plus rapide.",
     "voyage": "Tu gagnes temporairement +1 en Force.",
-    "image": "img/strength/2Strength.jpg"
+    "image": "img/strength/2Strength.png"
   },
   {
     "name": "Trois de Bâtons",
     "combat": "Ton prochain sort est amplifié ou plus rapide.",
     "voyage": "Tu gagnes temporairement +1 en Force.",
-    "image": "img/strength/3Strength.jpg"
+    "image": "img/strength/3Strength.png"
   },
   {
     "name": "Quatre de Bâtons",
     "combat": "Ton prochain sort est amplifié ou plus rapide.",
     "voyage": "Tu gagnes temporairement +1 en Force.",
-    "image": "img/strength/4Strength.jpg"
+    "image": "img/strength/4Strength.png"
   },
   {
     "name": "Cinq de Bâtons",
     "combat": "Ton prochain sort est amplifié ou plus rapide.",
     "voyage": "Tu gagnes temporairement +1 en Force.",
-    "image": "img/strength/5Strength.jpg"
+    "image": "img/strength/5Strength.png"
   },
   {
     "name": "Six de Bâtons",
     "combat": "Ton prochain sort est amplifié ou plus rapide.",
     "voyage": "Tu gagnes temporairement +1 en Force.",
-    "image": "img/strength/6Strength.jpg"
+    "image": "img/strength/6Strength.png"
   },
   {
     "name": "Sept de Bâtons",
     "combat": "Ton prochain sort est amplifié ou plus rapide.",
     "voyage": "Tu gagnes temporairement +1 en Force.",
-    "image": "img/strength/7Strength.jpg"
+    "image": "img/strength/7Strength.png"
   },
   {
     "name": "Huit de Bâtons",
     "combat": "Ton prochain sort est amplifié ou plus rapide.",
     "voyage": "Tu gagnes temporairement +1 en Force.",
-    "image": "img/strength/8Strength.jpg"
+    "image": "img/strength/8Strength.png"
   },
   {
     "name": "Neuf de Bâtons",
     "combat": "Ton prochain sort est amplifié ou plus rapide.",
     "voyage": "Tu gagnes temporairement +1 en Force.",
-    "image": "img/strength/9Strength.jpg"
+    "image": "img/strength/9Strength.png"
   },
   {
     "name": "Dix de Bâtons",
     "combat": "Ton prochain sort est amplifié ou plus rapide.",
     "voyage": "Tu gagnes temporairement +1 en Force.",
-    "image": "img/strength/10Strength.jpg"
+    "image": "img/strength/10Strength.png"
   },
   {
     "name": "Valet de Bâtons",
     "combat": "Ton prochain sort est amplifié ou plus rapide.",
     "voyage": "Tu gagnes temporairement +1 en Force.",
-    "image": "img/strength/PageStrength.jpg"
+    "image": "img/strength/PageStrength.png"
   },
   {
     "name": "Cavalier de Bâtons",
     "combat": "Ton prochain sort est amplifié ou plus rapide.",
     "voyage": "Tu gagnes temporairement +1 en Force.",
-    "image": "img/strength/KnightStrength.jpg"
+    "image": "img/strength/KnightStrength.png"
   },
   {
     "name": "Reine de Bâtons",
     "combat": "Ton prochain sort est amplifié ou plus rapide.",
     "voyage": "Tu gagnes temporairement +1 en Force.",
-    "image": "img/strength/QueenStrength.jpg"
+    "image": "img/strength/QueenStrength.png"
   },
   {
     "name": "Roi de Bâtons",
     "combat": "Ton prochain sort est amplifié ou plus rapide.",
     "voyage": "Tu gagnes temporairement +1 en Force.",
-    "image": "img/strength/KingStrength.jpg"
+    "image": "img/strength/KingStrength.png"
   },
   {
     "name": "As de Deniers",
     "combat": "Tu gagnes un avantage à ton prochain test d’objet ou de persuasion.",
     "voyage": "Tu gagnes temporairement +1 en Charisme.",
-    "image": "img/charisme/AceCharisma.jpg"
+    "image": "img/charisme/AceCharisma.png"
   },
   {
     "name": "Deux de Deniers",
     "combat": "Tu gagnes un avantage à ton prochain test d’objet ou de persuasion.",
     "voyage": "Tu gagnes temporairement +1 en Charisme.",
-    "image": "img/charisme/2Charisma.jpg"
+    "image": "img/charisme/2Charisma.png"
   },
   {
     "name": "Trois de Deniers",
     "combat": "Tu gagnes un avantage à ton prochain test d’objet ou de persuasion.",
     "voyage": "Tu gagnes temporairement +1 en Charisme.",
-    "image": "img/charisme/3Charisma.jpg"
+    "image": "img/charisme/3Charisma.png"
   },
   {
     "name": "Quatre de Deniers",
     "combat": "Tu gagnes un avantage à ton prochain test d’objet ou de persuasion.",
     "voyage": "Tu gagnes temporairement +1 en Charisme.",
-    "image": "img/charisme/4Charisma.jpg"
+    "image": "img/charisme/4Charisma.png"
   },
   {
     "name": "Cinq de Deniers",
     "combat": "Tu gagnes un avantage à ton prochain test d’objet ou de persuasion.",
     "voyage": "Tu gagnes temporairement +1 en Charisme.",
-    "image": "img/charisme/5Charisma.jpg"
+    "image": "img/charisme/5Charisma.png"
   },
   {
     "name": "Six de Deniers",
     "combat": "Tu gagnes un avantage à ton prochain test d’objet ou de persuasion.",
     "voyage": "Tu gagnes temporairement +1 en Charisme.",
-    "image": "img/charisme/6Charisma.jpg"
+    "image": "img/charisme/6Charisma.png"
   },
   {
     "name": "Sept de Deniers",
     "combat": "Tu gagnes un avantage à ton prochain test d’objet ou de persuasion.",
     "voyage": "Tu gagnes temporairement +1 en Charisme.",
-    "image": "img/charisme/7Charisma.jpg"
+    "image": "img/charisme/7Charisma.png"
   },
   {
     "name": "Huit de Deniers",
     "combat": "Tu gagnes un avantage à ton prochain test d’objet ou de persuasion.",
     "voyage": "Tu gagnes temporairement +1 en Charisme.",
-    "image": "img/charisme/8Charisma.jpg"
+    "image": "img/charisme/8Charisma.png"
   },
   {
     "name": "Neuf de Deniers",
     "combat": "Tu gagnes un avantage à ton prochain test d’objet ou de persuasion.",
     "voyage": "Tu gagnes temporairement +1 en Charisme.",
-    "image": "img/charisme/9Charisma.jpg"
+    "image": "img/charisme/9Charisma.png"
   },
   {
     "name": "Dix de Deniers",
     "combat": "Tu gagnes un avantage à ton prochain test d’objet ou de persuasion.",
     "voyage": "Tu gagnes temporairement +1 en Charisme.",
-    "image": "img/charisme/10Charisma.jpg"
+    "image": "img/charisme/10Charisma.png"
   },
   {
     "name": "Valet de Deniers",
     "combat": "Tu gagnes un avantage à ton prochain test d’objet ou de persuasion.",
     "voyage": "Tu gagnes temporairement +1 en Charisme.",
-    "image": "img/charisme/PageCharisma.jpg"
+    "image": "img/charisme/PageCharisma.png"
   },
   {
     "name": "Cavalier de Deniers",
     "combat": "Tu gagnes un avantage à ton prochain test d’objet ou de persuasion.",
     "voyage": "Tu gagnes temporairement +1 en Charisme.",
-    "image": "img/charisme/KnightCharisma.jpg"
+    "image": "img/charisme/KnightCharisma.png"
   },
   {
     "name": "Reine de Deniers",
     "combat": "Tu gagnes un avantage à ton prochain test d’objet ou de persuasion.",
     "voyage": "Tu gagnes temporairement +1 en Charisme.",
-    "image": "img/charisme/QueenCharisma.jpg"
+    "image": "img/charisme/QueenCharisma.png"
   },
   {
     "name": "Roi de Deniers",
     "combat": "Tu gagnes un avantage à ton prochain test d’objet ou de persuasion.",
     "voyage": "Tu gagnes temporairement +1 en Charisme.",
-    "image": "img/major_arcana/KingCharisma.jpg"
+    "image": "img/charisme/KingCharisma.png"
   }
 ];
