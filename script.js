@@ -2,6 +2,53 @@ const drawButton = document.getElementById('draw-button');
 const resultScreen = document.getElementById('result-screen');
 const homeScreen = document.getElementById('home-screen');
 const cardZone = document.getElementById('card-zone');
+const particleCanvas = document.getElementById('particle-canvas');
+const ctx = particleCanvas.getContext('2d');
+let particles = [];
+
+function resizeCanvas() {
+  particleCanvas.width = resultScreen.clientWidth;
+  particleCanvas.height = resultScreen.clientHeight;
+}
+
+function createParticles(count) {
+  particles = [];
+  for (let i = 0; i < count; i++) {
+    particles.push({
+      x: Math.random() * particleCanvas.width,
+      y: Math.random() * particleCanvas.height,
+      vx: (Math.random() - 0.5) * 0.5,
+      vy: (Math.random() - 0.5) * 0.5,
+      size: Math.random() * 2 + 1
+    });
+  }
+}
+
+function updateParticles() {
+  ctx.clearRect(0, 0, particleCanvas.width, particleCanvas.height);
+  particles.forEach(p => {
+    p.x += p.vx;
+    p.y += p.vy;
+
+    if (p.x < 0 || p.x > particleCanvas.width) p.vx *= -1;
+    if (p.y < 0 || p.y > particleCanvas.height) p.vy *= -1;
+
+    ctx.fillStyle = 'rgba(255,255,255,0.7)';
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+    ctx.fill();
+  });
+}
+
+function animateParticles() {
+  updateParticles();
+  requestAnimationFrame(animateParticles);
+}
+
+window.addEventListener('resize', () => {
+  resizeCanvas();
+  createParticles(100);
+});
 
 drawButton.addEventListener('click', () => {
   const count = parseInt(document.getElementById('card-count').value);
@@ -17,6 +64,9 @@ drawButton.addEventListener('click', () => {
 
   homeScreen.classList.add('hidden');
   resultScreen.classList.remove('hidden');
+  resizeCanvas();
+  createParticles(100);
+  animateParticles();
 
   cardZone.innerHTML = '';
 
