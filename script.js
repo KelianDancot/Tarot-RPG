@@ -21,18 +21,23 @@ drawButton.addEventListener('click', () => {
   cardZone.innerHTML = '';
 
   tirage.forEach(carte => {
+    const wrapper = document.createElement('div');
+    wrapper.classList.add('card-wrapper');
+
     const div = document.createElement('div');
     div.classList.add('card');
+    wrapper.appendChild(div);
+    cardZone.appendChild(wrapper);
+
     div.addEventListener('click', () => {
+      if (div.classList.contains('flipped')) return;
       div.classList.add('flipped');
-      div.innerHTML = `
-        <img src="${carte.image}" alt="${carte.name}" class="card-image">
-        <div class="card-text">
-          <strong>${carte.name}</strong>
-          <p>${carte[mode]}</p>
-        </div>
-      `;
+      div.innerHTML = `<img src="${carte.image}" alt="${carte.name}" class="card-image">`;
+
+      const info = document.createElement('div');
+      info.classList.add('card-info');
+      info.innerHTML = `<strong>${carte.name}</strong><p>${carte[mode]}</p>`;
+      wrapper.appendChild(info);
     });
-    cardZone.appendChild(div);
   });
 });
