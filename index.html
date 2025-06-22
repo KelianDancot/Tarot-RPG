@@ -4,10 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tirage Cartomancien</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rakkas&family=Uncial+Antiqua&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div id="home-screen" class="full-screen">
+    <div class="wrapper">
+      <h1 id="home-title" class="mystic-text home-title">Que révéleront les cartes aujourd’hui ?</h1>
+    </div>
     <img src="img/bg.png" id="background-hand" alt="main tenant une carte">
     <div class="ui-panel">
       <label>Nombre de cartes :</label>
@@ -23,6 +29,9 @@
   </div>
 
   <div id="result-screen" class="full-screen hidden">
+    <div class="wrapper">
+      <h1 id="draw-title" class="mystic-text draw-title">Quel secret les arcanes vous confieront-ils ?</h1>
+    </div>
     <canvas id="particle-canvas"></canvas>
     <button id="back-button" class="menu-button">Retour</button>
     <canvas id="particle-canvas"></canvas>
