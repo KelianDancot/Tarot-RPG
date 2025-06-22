@@ -42,10 +42,10 @@ body, html {
 
 #draw-button {
   position: absolute;
-  top: 49%;
-  left: 50.3%;
-  height: 670px;
-  width: 510px;
+  top: 57%;
+  left: 50%;
+  height: 285px;
+  width: 225px;
   transform: translate(-50%, -50%);
   cursor: pointer;
   z-index: 3;
@@ -75,6 +75,7 @@ body, html {
 .card {
   width: 180px;
   height: 280px;
+  margin: 1rem;
   background-image: url('img/dosCarte.png');
   background-size: cover;
   background-position: center;
