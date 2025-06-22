@@ -24,15 +24,20 @@
         <option value="combat">Combat</option>
         <option value="voyage">Voyage</option>
       </select>
+      <button id="toggle-music" class="menu-button">Musique : OFF</button>
     </div>
     <img src="img/dosCarte.png" height="700" width="400" id="draw-button" alt="Carte dos">
   </div>
 
   <div id="result-screen" class="full-screen hidden">
     <canvas id="particle-canvas"></canvas>
+    <button id="back-button" class="menu-button">Retour</button>
+    <canvas id="particle-canvas"></canvas>
     <div id="card-zone"></div>
   </div>
 
+  <audio id="bg-music" src="audio/bgmusic.mp3" loop></audio>
+  <audio id="flip-sound" src="audio/flip-sound.mp3"></audio>
 
   <script src="cards.js"></script>
   <script src="script.js"></script>

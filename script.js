@@ -3,6 +3,10 @@ const resultScreen = document.getElementById('result-screen');
 const homeScreen = document.getElementById('home-screen');
 const cardZone = document.getElementById('card-zone');
 const particleCanvas = document.getElementById('particle-canvas');
+const backButton = document.getElementById('back-button');
+const toggleMusicButton = document.getElementById('toggle-music');
+const bgMusic = document.getElementById('bg-music');
+const flipSound = document.getElementById('flip-sound');
 const ctx = particleCanvas.getContext('2d');
 let particles = [];
 
@@ -50,6 +54,21 @@ window.addEventListener('resize', () => {
   createParticles(100);
 });
 
+toggleMusicButton.addEventListener('click', () => {
+  if (bgMusic.paused) {
+    bgMusic.play();
+    toggleMusicButton.textContent = 'Musique : ON';
+  } else {
+    bgMusic.pause();
+    toggleMusicButton.textContent = 'Musique : OFF';
+  }
+});
+
+backButton.addEventListener('click', () => {
+  resultScreen.classList.add('hidden');
+  homeScreen.classList.remove('hidden');
+});
+
 drawButton.addEventListener('click', () => {
   const count = parseInt(document.getElementById('card-count').value);
   const mode = document.getElementById('mode').value;
@@ -83,6 +102,9 @@ drawButton.addEventListener('click', () => {
       if (div.classList.contains('flipped')) return;
       div.classList.add('flipped');
       div.innerHTML = `<img src="${carte.image}" alt="${carte.name}" class="card-image">`;
+
+      flipSound.currentTime = 0;
+      flipSound.play();
 
       const info = document.createElement('div');
       info.classList.add('card-info');
