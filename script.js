@@ -5,23 +5,10 @@ const cardZone = document.getElementById('card-zone');
 const particleCanvas = document.getElementById('particle-canvas');
 const backButton = document.getElementById('back-button');
 const toggleMusicButton = document.getElementById('toggle-music');
-const cardCountButton = document.getElementById('card-count-button');
-const modeButton = document.getElementById('mode-button');
 const bgMusic = document.getElementById('bg-music');
 const flipSound = document.getElementById('flip-sound');
 const ctx = particleCanvas.getContext('2d');
 let particles = [];
-let cardCount = 1;
-let mode = 'combat';
-
-window.addEventListener('load', () => {
-  bgMusic.play().then(() => {
-    toggleMusicButton.classList.add('active');
-    toggleMusicButton.textContent = '🔊';
-  }).catch(() => {
-    toggleMusicButton.textContent = '🔈';
-  });
-});
 
 function resizeCanvas() {
   particleCanvas.width = resultScreen.clientWidth;
@@ -67,26 +54,13 @@ window.addEventListener('resize', () => {
   createParticles(100);
 });
 
-cardCountButton.addEventListener('click', () => {
-  cardCount = cardCount % 5 + 1;
-  cardCountButton.textContent = cardCount;
-});
-
-modeButton.addEventListener('click', () => {
-  mode = mode === 'combat' ? 'voyage' : 'combat';
-  modeButton.textContent = mode.charAt(0).toUpperCase() + mode.slice(1);
-});
-
-
 toggleMusicButton.addEventListener('click', () => {
   if (bgMusic.paused) {
     bgMusic.play();
-    toggleMusicButton.classList.add('active');
-    toggleMusicButton.textContent = '🔊';
+    toggleMusicButton.textContent = 'Musique : ON';
   } else {
     bgMusic.pause();
-    toggleMusicButton.classList.remove('active');
-    toggleMusicButton.textContent = '🔈';
+    toggleMusicButton.textContent = 'Musique : OFF';
   }
 });
 
@@ -96,8 +70,8 @@ backButton.addEventListener('click', () => {
 });
 
 drawButton.addEventListener('click', () => {
-  const count = cardCount;
-  const currentMode = mode;
+  const count = parseInt(document.getElementById('card-count').value);
+  const mode = document.getElementById('mode').value;
 
   const deckClone = [...tarotDeck];
   const tirage = [];
@@ -134,7 +108,7 @@ drawButton.addEventListener('click', () => {
 
       const info = document.createElement('div');
       info.classList.add('card-info');
-      info.innerHTML = `<strong>${carte.name}</strong><p>${carte[currentMode]}</p>`;
+      info.innerHTML = `<strong>${carte.name}</strong><p>${carte[mode]}</p>`;
       wrapper.appendChild(info);
     });
   });
