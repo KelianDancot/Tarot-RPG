@@ -1,6 +1,7 @@
 const drawButton = document.getElementById('draw-button');
 const resultScreen = document.getElementById('result-screen');
 const homeScreen = document.getElementById('home-screen');
+const floatingContainer = document.getElementById('floating-container');
 const cardZone = document.getElementById('card-zone');
 const particleCanvas = document.getElementById('particle-canvas');
 const backButton = document.getElementById('back-button');
@@ -13,6 +14,33 @@ const ctx = particleCanvas.getContext('2d');
 let particles = [];
 let cardCount = 1;
 let mode = 'combat';
+let drawStarted = false;
+
+function createFloatingCards(count) {
+  floatingContainer.innerHTML = '';
+  for (let i = 0; i < count; i++) {
+    const card = document.createElement('div');
+    card.classList.add('floating-card');
+
+    const size = Math.random() * 60 + 40; // 40px to 100px
+    const duration = Math.random() * 15 + 10; // 10s to 25s
+    const opacity = Math.random() * 0.5 + 0.3;
+    const tx = (Math.random() - 0.5) * 200 + 'px';
+    const ty = (Math.random() - 0.5) * 200 + 'px';
+    const rot = (Math.random() - 0.5) * 60 + 'deg';
+
+    card.style.top = Math.random() * 100 + '%';
+    card.style.left = Math.random() * 100 + '%';
+    card.style.setProperty('--size', `${size}px`);
+    card.style.setProperty('--duration', `${duration}s`);
+    card.style.setProperty('--opacity', opacity);
+    card.style.setProperty('--tx', tx);
+    card.style.setProperty('--ty', ty);
+    card.style.setProperty('--rot', rot);
+
+    floatingContainer.appendChild(card);
+  }
+}
 
 window.addEventListener('load', () => {
   bgMusic.play().then(() => {
@@ -21,6 +49,7 @@ window.addEventListener('load', () => {
   }).catch(() => {
     toggleMusicButton.textContent = '🔈';
   });
+  createFloatingCards(30);
 });
 
 function resizeCanvas() {
@@ -93,9 +122,14 @@ toggleMusicButton.addEventListener('click', () => {
 backButton.addEventListener('click', () => {
   resultScreen.classList.add('hidden');
   homeScreen.classList.remove('hidden');
+  drawStarted = false;
+  createFloatingCards(30);
 });
 
-drawButton.addEventListener('click', () => {
+function startDraw() {
+  if (drawStarted) return;
+  drawStarted = true;
+  floatingContainer.innerHTML = '';
   const count = cardCount;
   const currentMode = mode;
 
@@ -115,9 +149,10 @@ drawButton.addEventListener('click', () => {
 
   cardZone.innerHTML = '';
 
-  tirage.forEach(carte => {
+  tirage.forEach((carte, index) => {
     const wrapper = document.createElement('div');
-    wrapper.classList.add('card-wrapper');
+    wrapper.classList.add('card-wrapper', 'deal-animation');
+    wrapper.style.animationDelay = `${index * 0.2}s`;
 
     const div = document.createElement('div');
     div.classList.add('card');
@@ -138,4 +173,12 @@ drawButton.addEventListener('click', () => {
       wrapper.appendChild(info);
     });
   });
+}
+
+drawButton.addEventListener('click', startDraw);
+
+homeScreen.addEventListener('click', (e) => {
+  if (!e.target.closest('.ui-panel') && e.target !== drawButton) {
+    startDraw();
+  }
 });
