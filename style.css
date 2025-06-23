@@ -1,3 +1,7 @@
+/*
+ * Feuille de styles principale de l'application
+ */
+
 * {
   box-sizing: border-box;
 }
@@ -14,6 +18,7 @@ body, html {
 }
 
 .full-screen {
+   /* Occupe toute la fenêtre */
   position: relative;
   width: 100vw;
   height: 100vh;
@@ -82,6 +87,7 @@ body, html {
 }
 
 .card {
+  /* Aspect d'une carte cachée par défaut*/
   width: 180px;
   height: 280px;
   margin: 1rem;
@@ -113,6 +119,7 @@ body, html {
 }
 
 .card-info {
+  /* Texte descriptif d'une carte révélée */
   margin-top: 0.5rem;
   text-align: center;
   font-size: 0.9em;
@@ -198,6 +205,7 @@ body, html {
 }
 
 .floating-card {
+  /* Cartes animées de l'écran d'accueil */
   position: absolute;
   background-image: url('img/dosCarte.png');
   background-size: cover;
@@ -210,6 +218,8 @@ body, html {
 }
 
 @keyframes float {
+  /* Mouvement aléatoire des cartes flottantes */
   to {
     transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) rotate(var(--rot));
   }
+}

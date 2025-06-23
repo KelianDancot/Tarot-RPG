@@ -1,22 +1,33 @@
+// ==============================
+// Sélection des éléments du DOM
+// ==============================
 const drawButton = document.getElementById('draw-button');
 const resultScreen = document.getElementById('result-screen');
 const homeScreen = document.getElementById('home-screen');
 const floatingContainer = document.getElementById('floating-container');
-const cardZone = document.getElementById('card-zone');
+const cardZone = document.getElementById('card-zone'); // Zone où placer les cartes
 const particleCanvas = document.getElementById('particle-canvas');
-const backButton = document.getElementById('back-button');
+const backButton = document.getElementById('back-button'); // Bouton retour
 const toggleMusicButton = document.getElementById('toggle-music');
 const cardCountButton = document.getElementById('card-count-button');
 const modeButton = document.getElementById('mode-button');
 const bgMusic = document.getElementById('bg-music');
 const flipSound = document.getElementById('flip-sound');
-const ctx = particleCanvas.getContext('2d');
-let particles = [];
-let cardCount = 1;
-let mode = 'combat';
-let drawStarted = false;
 
+// Contexte du canvas pour les particules
+const ctx = particleCanvas.getContext('2d');
+
+// ==============================
+// Variables de jeu
+// ==============================
+let particles = [];       // Particules d'arrière-plan
+let cardCount = 1;        // Nombre de cartes à tirer
+let mode = 'combat';      // Mode actuel (combat ou voyage)
+let drawStarted = false;  // Empêche de relancer un tirage en cours
+
+// Crée et anime des cartes qui flottent sur l'écran d'accueil
 function createFloatingCards(count) {
+  // On vide d'abord le conteneur
   floatingContainer.innerHTML = '';
   for (let i = 0; i < count; i++) {
     const card = document.createElement('div');
@@ -38,10 +49,12 @@ function createFloatingCards(count) {
     card.style.setProperty('--ty', ty);
     card.style.setProperty('--rot', rot);
 
+    // On ajoute la carte animée au conteneur
     floatingContainer.appendChild(card);
   }
 }
 
+// Au chargement de la page, on lance la musique et les cartes flottantes
 window.addEventListener('load', () => {
   bgMusic.play().then(() => {
     toggleMusicButton.classList.add('active');
@@ -57,6 +70,7 @@ function resizeCanvas() {
   particleCanvas.height = resultScreen.clientHeight;
 }
 
+// Génère les particules en arrière-plan
 function createParticles(count) {
   particles = [];
   for (let i = 0; i < count; i++) {
@@ -70,6 +84,7 @@ function createParticles(count) {
   }
 }
 
+// Met à jour la position des particules à chaque frame
 function updateParticles() {
   ctx.clearRect(0, 0, particleCanvas.width, particleCanvas.height);
   particles.forEach(p => {
@@ -86,27 +101,31 @@ function updateParticles() {
   });
 }
 
+// Boucle d'animation des particules
 function animateParticles() {
   updateParticles();
   requestAnimationFrame(animateParticles);
 }
 
+// Réinitialise le canvas quand la fenêtre change de taille
 window.addEventListener('resize', () => {
   resizeCanvas();
   createParticles(100);
 });
 
+// Changement du nombre de cartes à tirer
 cardCountButton.addEventListener('click', () => {
   cardCount = cardCount % 5 + 1;
   cardCountButton.textContent = cardCount;
 });
 
+// Bascule entre le mode combat et voyage
 modeButton.addEventListener('click', () => {
   mode = mode === 'combat' ? 'voyage' : 'combat';
   modeButton.textContent = mode.charAt(0).toUpperCase() + mode.slice(1);
 });
 
-
+// Active ou coupe la musique
 toggleMusicButton.addEventListener('click', () => {
   if (bgMusic.paused) {
     bgMusic.play();
@@ -119,6 +138,7 @@ toggleMusicButton.addEventListener('click', () => {
   }
 });
 
+// Retour à l'écran d'accueil
 backButton.addEventListener('click', () => {
   resultScreen.classList.add('hidden');
   homeScreen.classList.remove('hidden');
@@ -126,29 +146,34 @@ backButton.addEventListener('click', () => {
   createFloatingCards(30);
 });
 
+// Lance un nouveau tirage de cartes
 function startDraw() {
-  if (drawStarted) return;
+  if (drawStarted) return; // Empêche les doubles clics
   drawStarted = true;
+  // On nettoie l'écran d'accueil
   floatingContainer.innerHTML = '';
-  const count = cardCount;
-  const currentMode = mode;
+  const count = cardCount;      // nombre de cartes à piocher
+  const currentMode = mode;     // mode sélectionné
 
-  const deckClone = [...tarotDeck];
-  const tirage = [];
+  const deckClone = [...tarotDeck]; // clone pour ne pas modifier le jeu original
+  const tirage = [];               // résultat du tirage
 
+  // Sélection aléatoire des cartes
   for (let i = 0; i < count; i++) {
     const index = Math.floor(Math.random() * deckClone.length);
     tirage.push(deckClone.splice(index, 1)[0]);
   }
 
+  // Passage sur l'écran de résultat
   homeScreen.classList.add('hidden');
   resultScreen.classList.remove('hidden');
-  resizeCanvas();
-  createParticles(100);
-  animateParticles();
+  resizeCanvas();          // Ajuste la taille du canvas
+  createParticles(100);    // Prépare les particules
+  animateParticles();      // Lance l'animation
 
   cardZone.innerHTML = '';
 
+  // Affichage des cartes piochées
   tirage.forEach((carte, index) => {
     const wrapper = document.createElement('div');
     wrapper.classList.add('card-wrapper', 'deal-animation');
@@ -159,6 +184,7 @@ function startDraw() {
     wrapper.appendChild(div);
     cardZone.appendChild(wrapper);
 
+    // Révèle la carte au clic
     div.addEventListener('click', () => {
       if (div.classList.contains('flipped')) return;
       div.classList.add('flipped');
