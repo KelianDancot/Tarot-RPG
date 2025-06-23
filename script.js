@@ -10,43 +10,9 @@ const modeButton = document.getElementById('mode-button');
 const bgMusic = document.getElementById('bg-music');
 const flipSound = document.getElementById('flip-sound');
 const ctx = particleCanvas.getContext('2d');
-const homeTitle = document.getElementById('home-title');
-const drawTitle = document.getElementById('draw-title');
 let particles = [];
 let cardCount = 1;
 let mode = 'combat';
-
-function setupMysticText(el, delayStart = 0) {
-  if (!el) return;
-  const text = el.textContent.trim();
-  el.textContent = '';
-  [...text].forEach((ch, i) => {
-    const span = document.createElement('span');
-    span.textContent = ch;
-    span.style.animationDelay = (delayStart + i * 0.1) + 's';
-    const shade = Math.floor(Math.random() * 156) + 100; // 100-255
-    span.style.color = `rgb(${shade},${shade},${shade})`;
-    span.style.textShadow = `0 0 8px rgb(${shade},${shade},${shade})`;
-    el.appendChild(span);
-  });
-}
-
-function createStarBackground() {
-  const starsPer100 = 1;
-  const width = document.documentElement.offsetWidth;
-  const height = document.documentElement.offsetHeight;
-  let count = Math.floor(width / 100) * Math.floor(height / 100) * starsPer100;
-  let delay = Math.max(1, Math.round(count / 5000));
-  const id = setInterval(() => {
-    const star = document.createElement('i');
-    star.className = 'star';
-    if (Math.random() < 0.5) star.classList.add('medium');
-    star.style.left = (Math.random() * 99).toFixed(2) + '%';
-    star.style.top = (Math.random() * 99).toFixed(2) + '%';
-    document.body.appendChild(star);
-    if (--count === 0) clearInterval(id);
-  }, delay);
-}
 
 window.addEventListener('load', () => {
   bgMusic.play().then(() => {
@@ -55,9 +21,6 @@ window.addEventListener('load', () => {
   }).catch(() => {
     toggleMusicButton.textContent = '🔈';
   });
-  setupMysticText(homeTitle, 0.6);
-  setupMysticText(drawTitle, 0.6);
-  createStarBackground();
 });
 
 function resizeCanvas() {
