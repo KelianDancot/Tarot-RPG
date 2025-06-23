@@ -146,15 +146,44 @@ backButton.addEventListener('click', () => {
   createFloatingCards(30);
 });
 
+async function animateDrawButton(times) {
+  for (let i = 0; i < times; i++) {
+    // Reset position so the animation always starts from the same place
+    drawButton.style.top = '56.5%';
+    drawButton.style.opacity = '1';
+
+    // Force reflow to allow the animation to replay
+    void drawButton.offsetWidth;
+
+    await new Promise(resolve => {
+      const end = () => {
+        drawButton.classList.remove('draw-animation');
+        drawButton.removeEventListener('animationend', end);
+        resolve();
+      };
+      drawButton.addEventListener('animationend', end);
+      drawButton.classList.add('draw-animation');
+    });
+  }
+  // reset position
+  drawButton.style.top = '56.5%';
+  drawButton.style.opacity = '1';
+}
+
 // Lance un nouveau tirage de cartes
-function startDraw() {
+async function startDraw() {
   if (drawStarted) return; // Empêche les doubles clics
   drawStarted = true;
-  // On nettoie l'écran d'accueil
-  floatingContainer.innerHTML = '';
+  
   const count = cardCount;      // nombre de cartes à piocher
   const currentMode = mode;     // mode sélectionné
 
+  // Animation du bouton de pioche simulant chaque carte tirée
+  await animateDrawButton(count);
+
+  // On nettoie l'écran d'accueil
+  floatingContainer.innerHTML = '';
+  
   const deckClone = [...tarotDeck]; // clone pour ne pas modifier le jeu original
   const tirage = [];               // résultat du tirage
 
@@ -167,6 +196,8 @@ function startDraw() {
   // Passage sur l'écran de résultat
   homeScreen.classList.add('hidden');
   resultScreen.classList.remove('hidden');
+  
+
   resizeCanvas();          // Ajuste la taille du canvas
   createParticles(100);    // Prépare les particules
   animateParticles();      // Lance l'animation

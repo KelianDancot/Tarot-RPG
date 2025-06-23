@@ -223,3 +223,19 @@ body, html {
     transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) rotate(var(--rot));
   }
 }
+
+/* Animation du bouton de tirage simulant la distribution de plusieurs cartes */
+.draw-animation {
+  animation: drawDeck 0.4s ease-out;
+}
+
+@keyframes drawDeck {
+  from {
+    top: 56.5%;
+    opacity: 1;
+  }
+  to {
+    top: 120%;
+    opacity: 0;
+  }
+}
