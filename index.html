@@ -10,21 +10,14 @@
   <div id="home-screen" class="full-screen">
     <img src="img/bg.png" id="background-hand" alt="main tenant une carte">
     <div class="ui-panel">
-      <label for="card-count">Nombre de cartes :</label>
-      <select id="card-count">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
+      <label>Nombre de cartes :</label>
+      <button id="card-count-button" class="menu-button round-button">1</button>
       </select>
 
-      <label for="mode">Mode :</label>
-      <select id="mode">
-        <option value="combat">Combat</option>
-        <option value="voyage">Voyage</option>
-      </select>
-      <button id="toggle-music" class="menu-button">Musique : OFF</button>
+      <label>Mode :</label>
+      <button id="mode-button" class="menu-button round-button">Combat</button>
+
+      <button id="toggle-music" class="menu-button round-button">🔈</button>
     </div>
     <img src="img/dosCarte.png" height="700" width="400" id="draw-button" alt="Carte dos">
   </div>
@@ -36,11 +29,10 @@
     <div id="card-zone"></div>
   </div>
 
-  <audio id="bg-music" src="audio/bgmusic.mp3" loop></audio>
+  <audio id="bg-music" src="audio/bgmusic.mp3" loop autoplay></audio>
   <audio id="flip-sound" src="audio/flip-sound.mp3"></audio>
 
   <script src="cards.js"></script>
   <script src="script.js"></script>
-  <script src="particle.js"></script>
 </body>
 </html>
