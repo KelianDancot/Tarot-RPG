@@ -154,7 +154,8 @@ async function animateDrawButton(times) {
     drawButton.style.opacity = '1';
 
     
-
+    drawSound.currentTime = 0;
+    drawSound.play();
     // Force reflow to allow the animation to replay
     void drawButton.offsetWidth;
 

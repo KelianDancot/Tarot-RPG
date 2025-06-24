@@ -19,8 +19,8 @@ const tarotDeck = [
     "name": "La Papesse (II)",
     "combat": "Tu peux identifier instantanément une faiblesse ou un point faible (vulnérabilité ou immunité) d’un ennemi.",
     "voyage": "Tu es consulté comme sage même si tu n’as rien dit.",
-    "combatenvers": "",
-    "voyageenvers": "",
+    "combatenvers": "Tu perd temporairement ta magie, pas de sort ce tour ci.",
+    "voyageenvers": "Toute tentative d’enquête ou de recherche d’information te donne des fausses pistes ou de mauvaises interprétations.",
     "image": "img/major_arcana/TheHighPriestess.png"
   },
   {
@@ -41,9 +41,9 @@ const tarotDeck = [
   },
   {
     "name": "Le Pape (V)",
-    "combat": "Tes alliés reçoive le sort 'aide' pour 1 tour.",
+    "combat": "1d4 dégât radiant bonus sur ton prochain sort.",
     "voyage": "Tu es vu comme un guide spirituel. Les religieux te suivent.",
-    "combatenvers": "",
+    "combatenvers": "Tu perd la foi, désavantage à tous tes jets jusqu’à la fin de ton prochain tour.",
     "voyageenvers": "Ton personnage devient raciste pour la journée (RP)",
     "image": "img/major_arcana/TheHierophant.png"
   },
@@ -100,7 +100,7 @@ const tarotDeck = [
     "combat": "Tu est immunisé au prochain contrôle.",
     "voyage": "Tu peux retiré une carte au prochain court repos.",
     "combatenvers": "Tu perds ton action lors du premier round à cause d’une hésitation mentale.",
-    "voyageenvers": "",
+    "voyageenvers": "Tu es bloqué mentalement par l’indécision : tu ne peux pas prendre d’initiative sociale majeure",
     "image": "img/major_arcana/TheHangedMan.png"
   },
   {
@@ -130,9 +130,9 @@ const tarotDeck = [
   {
     "name": "La Tour (XVI)",
     "combat": "Explosion magique autour de toi : 2d8 dégâts de force dans un rayon de 3m.",
-    "voyage": "",
+    "voyage": "Tu dévoiles une vérité cachée (secret majeur, traîtrise, mensonge).",
     "combatenvers": "Les ennemis ont appris de vos erreurs, soigne 2d8 de dégâts dans un rayon de 3m",
-    "voyageenvers": "Un lieu ou objet que tu croyais stable s’effondre aujourd’hui (au sens physique).",
+    "voyageenvers": "Tu est incapable de mentir pendant la journée.",
     "image": "img/major_arcana/TheTower.png"
   },
   {
@@ -162,9 +162,9 @@ const tarotDeck = [
   {
     "name": "Le Jugement (XX)",
     "combat": "Reçois une action bonus supplémentaire",
-    "voyage": "",
+    "voyage": "Une faute ancienne ressurgit : un PNJ trahi, une dette non payée, un acte malveillant revient sous forme de poursuite, trahison ou malus social.",
     "combatenvers": "Prenez une attaque de l'ennemis le plus proche, si aucun ennemis n'est proche prenez 1d6 holy",
-    "voyageenvers": "",
+    "voyageenvers": "Tu bénéficies du retour d'une bonne action passée : un PNJ que tu as aidé, un acte oublié ou une dette ancienne te revient positivement",
     "image": "img/major_arcana/Judgement.png"
   },
   {
@@ -177,19 +177,19 @@ const tarotDeck = [
   },
   {
     "name": "As de Coupes",
-    "combat": "Tu soignes 1 PV à un allié ou à toi-même.",
-    "voyage": "Tu gagnes +1 sur ton prochain test de Sagesse.",
+    "combat": "Tu fais perdre 1 PV à un allié ou à toi-même.",
+    "voyage": "Tu perds -1 sur ton prochain test de Sagesse.",
     "image": "img/wisdom/AceWisdom.png"
   },
   {
     "name": "Deux de Coupes",
-    "combat": "Tu soignes 1d2 PV à un allié ou à toi-même.",
-    "voyage": "Tu gagnes 1d2 sur ton prochain test de Sagesse.",
+    "combat": "Tu fais perdre 1d2 PV à un allié ou à toi-même.",
+    "voyage": "Tu perds 1d2 sur ton prochain test de Sagesse.",
     "image": "img/wisdom/2Wisdom.png"
   },
   {
     "name": "Trois de Coupes",
-    "combat": "Tu soignes 1d3 PV à un allié ou à toi-même.",
+    "combat": "Tu fais perdre 1d3 PV à un allié ou à toi-même.",
     "voyage": "Tu gagnes 1d3 sur ton prochain test de Sagesse.",
     "image": "img/wisdom/3Wisdom.png"
   },
