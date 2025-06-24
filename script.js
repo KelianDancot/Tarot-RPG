@@ -13,6 +13,7 @@ const cardCountButton = document.getElementById('card-count-button');
 const modeButton = document.getElementById('mode-button');
 const bgMusic = document.getElementById('bg-music');
 const flipSound = document.getElementById('flip-sound');
+const drawSound = document.getElementById('draw-sound');
 
 // Contexte du canvas pour les particules
 const ctx = particleCanvas.getContext('2d');
@@ -152,6 +153,8 @@ async function animateDrawButton(times) {
     drawButton.style.top = '56.5%';
     drawButton.style.opacity = '1';
 
+    
+
     // Force reflow to allow the animation to replay
     void drawButton.offsetWidth;
 
@@ -159,6 +162,7 @@ async function animateDrawButton(times) {
       const end = () => {
         drawButton.classList.remove('draw-animation');
         drawButton.removeEventListener('animationend', end);
+        
         resolve();
       };
       drawButton.addEventListener('animationend', end);
@@ -190,7 +194,10 @@ async function startDraw() {
   // Sélection aléatoire des cartes
   for (let i = 0; i < count; i++) {
     const index = Math.floor(Math.random() * deckClone.length);
-    tirage.push(deckClone.splice(index, 1)[0]);
+    const carte = deckClone.splice(index, 1)[0];
+    const isMajor = carte.image.includes('major_arcana');
+    const reversed = isMajor && Math.random() < 0.5; // seulement les majeures
+    tirage.push({ ...carte, reversed });
   }
 
   // Passage sur l'écran de résultat
@@ -219,14 +226,18 @@ async function startDraw() {
     div.addEventListener('click', () => {
       if (div.classList.contains('flipped')) return;
       div.classList.add('flipped');
-      div.innerHTML = `<img src="${carte.image}" alt="${carte.name}" class="card-image">`;
+      const imgClass = carte.reversed ? 'card-image reversed' : 'card-image';
+      const imgAlt = carte.reversed ? `${carte.name} à l'envers` : carte.name;
+      div.innerHTML = `<img src="${carte.image}" alt="${imgAlt}" class="${imgClass}">`;
 
       flipSound.currentTime = 0;
       flipSound.play();
 
       const info = document.createElement('div');
       info.classList.add('card-info');
-      info.innerHTML = `<strong>${carte.name}</strong><p>${carte[currentMode]}</p>`;
+      const displayName = carte.reversed ? `${carte.name} (à l'envers)` : carte.name;
+      const effectKey = carte.reversed ? `${currentMode}Reversed` : currentMode;
+      info.innerHTML = `<strong>${displayName}</strong><p>${carte[effectKey]}</p>`;
       wrapper.appendChild(info);
     });
   });
