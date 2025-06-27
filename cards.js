@@ -162,9 +162,9 @@ const tarotDeck = [
   {
     "name": "Le Jugement (XX)",
     "combat": "Reçois une action bonus supplémentaire",
-    "voyage": "Une faute ancienne ressurgit : un PNJ trahi, une dette non payée, un acte malveillant revient sous forme de poursuite, trahison ou malus social.",
+    "voyage": "Tu bénéficies du retour d'une bonne action passée : un PNJ que tu as aidé, un acte oublié ou une dette ancienne te revient positivement.",
     "combatenvers": "Prenez une attaque de l'ennemis le plus proche, si aucun ennemis n'est proche prenez 1d6 holy",
-    "voyageenvers": "Tu bénéficies du retour d'une bonne action passée : un PNJ que tu as aidé, un acte oublié ou une dette ancienne te revient positivement",
+    "voyageenvers": "Une faute ancienne ressurgit : un PNJ trahi, une dette non payée, un acte malveillant revient sous forme de poursuite, trahison ou malus social.",
     "image": "img/major_arcana/Judgement.png"
   },
   {
@@ -184,55 +184,55 @@ const tarotDeck = [
   {
     "name": "Deux de Coupes",
     "combat": "Tu fais perdre 1d2 PV à un allié ou à toi-même.",
-    "voyage": "Tu perds 1d2 sur ton prochain test de Sagesse.",
+    "voyage": "Tu perds -2 sur ton prochain test de Sagesse.",
     "image": "img/wisdom/2Wisdom.png"
   },
   {
     "name": "Trois de Coupes",
     "combat": "Tu fais perdre 1d3 PV à un allié ou à toi-même.",
-    "voyage": "Tu gagnes 1d3 sur ton prochain test de Sagesse.",
+    "voyage": "Tu perds -3 sur ton prochain test de Sagesse.",
     "image": "img/wisdom/3Wisdom.png"
   },
   {
     "name": "Quatre de Coupes",
-    "combat": "Tu soignes 1d4 PV à un allié ou à toi-même.",
-    "voyage": "Tu gagnes 1d4 sur ton prochain test de Sagesse.",
+    "combat": "Tu fais perdre 1d4 PV à un allié ou à toi-même.",
+    "voyage": "Tu perds -4 sur ton prochain test de Sagesse.",
     "image": "img/wisdom/4Wisdom.png"
   },
   {
     "name": "Cinq de Coupes",
-    "combat": "Tu soignes 1d5 PV à un allié ou à toi-même.",
-    "voyage": "Tu gagnes 1d5 sur ton prochain test de Sagesse.",
+    "combat": "Tu fais perdre 1d5 PV à un allié ou à toi-même.",
+    "voyage": "Tu perds -5 sur ton prochain test de Sagesse.",
     "image": "img/wisdom/5Wisdom.png"
   },
   {
     "name": "Six de Coupes",
-    "combat": "Tu soignes 1d6 PV à un allié ou à toi-même.",
-    "voyage": "Tu gagnes 1d6 sur ton prochain test de Sagesse.",
+    "combat": "Tu soignes 1 PV à un allié ou à toi-même.",
+    "voyage": "Tu gagnes +1 sur ton prochain test de Sagesse.",
     "image": "img/wisdom/6Wisdom.png"
   },
   {
     "name": "Sept de Coupes",
-    "combat": "Tu soignes 1d7 PV à un allié ou à toi-même.",
-    "voyage": "Tu gagnes 1d7 sur ton prochain test de Sagesse.",
+    "combat": "Tu soignes 1d2 PV à un allié ou à toi-même.",
+    "voyage": "Tu gagnes +2 sur ton prochain test de Sagesse.",
     "image": "img/wisdom/7Wisdom.png"
   },
   {
     "name": "Huit de Coupes",
-    "combat": "Tu soignes 1d8 PV à un allié ou à toi-même.",
-    "voyage": "Tu gagnes 1d8 sur ton prochain test de Sagesse.",
+    "combat": "Tu soignes 1d3 PV à un allié ou à toi-même.",
+    "voyage": "Tu gagnes +3 sur ton prochain test de Sagesse.",
     "image": "img/wisdom/8Wisdom.png"
   },
   {
     "name": "Neuf de Coupes",
-    "combat": "Tu soignes 1d9 PV à un allié ou à toi-même.",
-    "voyage": "Tu gagnes +9 sur ton prochain test de Sagesse.",
+    "combat": "Tu soignes 1d4 PV à un allié ou à toi-même.",
+    "voyage": "Tu gagnes +4 sur ton prochain test de Sagesse.",
     "image": "img/wisdom/9Wisdom.png"
   },
   {
     "name": "Dix de Coupes",
-    "combat": "Tu soignes 1d10 PV à un allié ou à toi-même.",
-    "voyage": "Tu gagnes +10 sur ton prochain test de Sagesse.",
+    "combat": "Tu soignes 1d5 PV à un allié ou à toi-même.",
+    "voyage": "Tu gagnes +5 sur ton prochain test de Sagesse.",
     "image": "img/wisdom/10Wisdom.png"
   },
   {

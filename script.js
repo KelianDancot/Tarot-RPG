@@ -116,7 +116,7 @@ window.addEventListener('resize', () => {
 
 // Changement du nombre de cartes à tirer
 cardCountButton.addEventListener('click', () => {
-  cardCount = cardCount % 5 + 1;
+  cardCount = cardCount % 6 + 1;
   cardCountButton.textContent = cardCount;
 });
 
