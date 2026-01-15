@@ -70,8 +70,7 @@ body, html {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-direction: column;
   padding: 2rem;
 }
 
@@ -83,7 +82,9 @@ body, html {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 1rem;
+  margin: 0 1rem;
+  flex: 0 0 auto;
+  scroll-snap-align: center;
 }
 
 .card {
@@ -128,14 +129,39 @@ body, html {
 
 #card-zone {
   display: flex;
-  gap : 2rem;
+  gap: 2rem;
   flex-direction: row;
   position: relative;
   z-index: 1;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  padding-bottom: 5rem;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 2rem 4rem 5rem;
+  width: min(100%, 1200px);
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-padding: 4rem;
+  cursor: grab;
+}
+
+#card-zone.dragging {
+  cursor: grabbing;
+}
+
+#card-zone::-webkit-scrollbar {
+  height: 10px;
+}
+
+#card-zone::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+}
+
+#card-zone::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 999px;
 }
 
 #particle-canvas {

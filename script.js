@@ -19,6 +19,42 @@ const drawSound = document.getElementById('draw-sound');
 const ctx = particleCanvas.getContext('2d');
 
 // ==============================
+// Slider horizontal pour les cartes
+// ==============================
+let isDragging = false;
+let dragStartX = 0;
+let dragStartScroll = 0;
+
+cardZone.addEventListener('wheel', (event) => {
+  if (Math.abs(event.deltaY) <= Math.abs(event.deltaX)) return;
+  cardZone.scrollLeft += event.deltaY;
+  event.preventDefault();
+}, { passive: false });
+
+cardZone.addEventListener('pointerdown', (event) => {
+  isDragging = true;
+  dragStartX = event.clientX;
+  dragStartScroll = cardZone.scrollLeft;
+  cardZone.classList.add('dragging');
+  cardZone.setPointerCapture(event.pointerId);
+});
+
+cardZone.addEventListener('pointermove', (event) => {
+  if (!isDragging) return;
+  const deltaX = event.clientX - dragStartX;
+  cardZone.scrollLeft = dragStartScroll - deltaX;
+});
+
+['pointerup', 'pointercancel', 'pointerleave'].forEach((eventName) => {
+  cardZone.addEventListener(eventName, (event) => {
+    if (!isDragging) return;
+    isDragging = false;
+    cardZone.classList.remove('dragging');
+    cardZone.releasePointerCapture(event.pointerId);
+  });
+});
+
+// ==============================
 // Variables de jeu
 // ==============================
 let particles = [];       // Particules d'arrière-plan
