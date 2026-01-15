@@ -237,110 +237,110 @@ const tarotDeck = [
   },
   {
     "name": "Valet de Coupes",
-    "combat": "Tu soignes 2d5 PV à un allié ou à toi-même.",
-    "voyage": "Tu gagnes +11 sur ton prochain test de Sagesse.",
+    "combat": "Tu soignes 2d3 PV à un allié ou à toi-même.",
+    "voyage": "Tu gagnes +6 sur ton prochain test de Sagesse.",
     "image": "img/wisdom/PageWisdom.png"
   },
   {
     "name": "Cavalier de Coupes",
-    "combat": "Tu soignes 2d6 PV à un allié ou à toi-même.",
-    "voyage": "Tu gagnes +12 sur ton prochain test de Sagesse.",
+    "combat": "Tu soignes 2d4 PV à un allié ou à toi-même.",
+    "voyage": "Tu gagnes +7 sur ton prochain test de Sagesse.",
     "image": "img/wisdom/KnightWisdom.png"
   },
   {
     "name": "Reine de Coupes",
-    "combat": "Tu soignes 2d8 PV à un allié ou à toi-même.",
-    "voyage": "Tu gagnes +13 sur ton prochain test de Sagesse.",
+    "combat": "Tu soignes 2d5 PV à un allié ou à toi-même.",
+    "voyage": "Tu gagnes +8 sur ton prochain test de Sagesse.",
     "image": "img/wisdom/QueenWisdom.png"
   },
   {
     "name": "Roi de Coupes",
-    "combat": "Tu soignes 3d5 PV à un allié ou à toi-même.",
+    "combat": "Tu soignes 2d6 PV à un allié ou à toi-même.",
     "voyage": "Tu gagnes +14 sur ton prochain test de Sagesse.",
     "image": "img/wisdom/KingWisdom.png"
   },
   {
     "name": "As de Épées",
-    "combat": "Ton prochain jet d’attaque obtient un bonus de +2.",
-    "voyage": "Tu gagnes temporairement +1 en Intelligence.",
+    "combat": "Ton prochain jet d’attaque obtient un malus de -1 sur la touche.",
+    "voyage": "Tu perds temporairement -1 en Intelligence. (5 heures)",
     "image": "img/intelligence/AceIntelligence.png"
   },
   {
     "name": "Deux de Épées",
-    "combat": "Ton prochain jet d’attaque obtient un bonus de +2.",
-    "voyage": "Tu gagnes temporairement +1 en Intelligence.",
+    "combat": "Ton prochain jet d’attaque obtient un malus de -2 sur la touche.",
+    "voyage": "Tu perds temporairement -2 en Intelligence. (4 heures)",
     "image": "img/intelligence/2Intelligence.png"
   },
   {
     "name": "Trois de Épées",
-    "combat": "Ton prochain jet d’attaque obtient un bonus de +2.",
-    "voyage": "Tu gagnes temporairement +1 en Intelligence.",
+    "combat": "Ton prochain jet d’attaque obtient un malus de -3 sur la touche.",
+    "voyage": "Tu perds temporairement -3 en Intelligence. (3 heures)",
     "image": "img/intelligence/3Intelligence.png"
   },
   {
     "name": "Quatre de Épées",
-    "combat": "Ton prochain jet d’attaque obtient un bonus de +2.",
-    "voyage": "Tu gagnes temporairement +1 en Intelligence.",
+    "combat": "Ton prochain jet d’attaque obtient un malus de -4 sur la touche.",
+    "voyage": "Tu perds temporairement -4 en Intelligence. (2 heures)",
     "image": "img/intelligence/4Intelligence.png"
   },
   {
     "name": "Cinq de Épées",
-    "combat": "Ton prochain jet d’attaque obtient un bonus de +2.",
-    "voyage": "Tu gagnes temporairement +1 en Intelligence.",
+    "combat": "Ton prochain jet d’attaque obtient un malus de -5 sur la touche.",
+    "voyage": "Tu perds temporairement -5 en Intelligence. (1 heures)",
     "image": "img/intelligence/5Intelligence.png"
   },
   {
     "name": "Six de Épées",
-    "combat": "Ton prochain jet d’attaque obtient un bonus de +2.",
+    "combat": "Ton prochain jet d’attaque obtient un bonus de +1 sur la touche.",
     "voyage": "Tu gagnes temporairement +1 en Intelligence.",
     "image": "img/intelligence/6Intelligence.png"
   },
   {
     "name": "Sept de Épées",
-    "combat": "Ton prochain jet d’attaque obtient un bonus de +2.",
-    "voyage": "Tu gagnes temporairement +1 en Intelligence.",
+    "combat": "Ton prochain jet d’attaque obtient un bonus de +2 sur la touche.",
+    "voyage": "Tu gagnes temporairement +2 en Intelligence.",
     "image": "img/intelligence/7Intelligence.png"
   },
   {
     "name": "Huit de Épées",
-    "combat": "Ton prochain jet d’attaque obtient un bonus de +2.",
-    "voyage": "Tu gagnes temporairement +1 en Intelligence.",
+    "combat": "Ton prochain jet d’attaque obtient un bonus de +3 sur la touche.",
+    "voyage": "Tu gagnes temporairement +3 en Intelligence.",
     "image": "img/intelligence/8Intelligence.png"
   },
   {
     "name": "Neuf de Épées",
-    "combat": "Ton prochain jet d’attaque obtient un bonus de +2.",
-    "voyage": "Tu gagnes temporairement +1 en Intelligence.",
+    "combat": "Ton prochain jet d’attaque obtient un bonus de +4 sur la touche.",
+    "voyage": "Tu gagnes temporairement +4 en Intelligence.",
     "image": "img/intelligence/9Intelligence.png"
   },
   {
     "name": "Dix de Épées",
-    "combat": "Ton prochain jet d’attaque obtient un bonus de +2.",
-    "voyage": "Tu gagnes temporairement +1 en Intelligence.",
+    "combat": "Ton prochain jet d’attaque obtient un bonus de +5 sur la touche.",
+    "voyage": "Tu gagnes temporairement +5 en Intelligence.",
     "image": "img/intelligence/10Intelligence.png"
   },
   {
     "name": "Valet de Épées",
-    "combat": "Ton prochain jet d’attaque obtient un bonus de +2.",
-    "voyage": "Tu gagnes temporairement +1 en Intelligence.",
+    "combat": "Ton prochain jet d’attaque obtient un bonus de +6 sur la touche.",
+    "voyage": "Tu gagnes temporairement +6 en Intelligence.",
     "image": "img/intelligence/PageIntelligence.png"
   },
   {
     "name": "Cavalier de Épées",
-    "combat": "Ton prochain jet d’attaque obtient un bonus de +2.",
-    "voyage": "Tu gagnes temporairement +1 en Intelligence.",
+    "combat": "Ton prochain jet d’attaque obtient un bonus de +7 sur la touche.",
+    "voyage": "Tu gagnes temporairement +7 en Intelligence.",
     "image": "img/intelligence/KnightIntelligence.png"
   },
   {
     "name": "Reine de Épées",
-    "combat": "Ton prochain jet d’attaque obtient un bonus de +2.",
-    "voyage": "Tu gagnes temporairement +1 en Intelligence.",
+    "combat": "Ton prochain jet d’attaque obtient un bonus de +8 sur la touche.",
+    "voyage": "Tu gagnes temporairement +8 en Intelligence.",
     "image": "img/intelligence/QueenIntelligence.png"
   },
   {
     "name": "Roi de Épées",
-    "combat": "Ton prochain jet d’attaque obtient un bonus de +2.",
-    "voyage": "Tu gagnes temporairement +1 en Intelligence.",
+    "combat": "Ton prochain jet d’attaque obtient un bonus de +9 sur la touche.",
+    "voyage": "Tu gagnes temporairement +9 en Intelligence.",
     "image": "img/intelligence/KingIntelligence.png"
   },
   {
