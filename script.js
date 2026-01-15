@@ -11,6 +11,8 @@ const backButton = document.getElementById('back-button'); // Bouton retour
 const toggleMusicButton = document.getElementById('toggle-music');
 const cardCountButton = document.getElementById('card-count-button');
 const modeButton = document.getElementById('mode-button');
+const sliderPrevButton = document.getElementById('slider-prev');
+const sliderNextButton = document.getElementById('slider-next');
 const bgMusic = document.getElementById('bg-music');
 const flipSound = document.getElementById('flip-sound');
 const drawSound = document.getElementById('draw-sound');
@@ -21,37 +23,31 @@ const ctx = particleCanvas.getContext('2d');
 // ==============================
 // Slider horizontal pour les cartes
 // ==============================
-let isDragging = false;
-let dragStartX = 0;
-let dragStartScroll = 0;
+function updateSliderButtons() {
+  const maxScrollLeft = cardZone.scrollWidth - cardZone.clientWidth;
+  sliderPrevButton.disabled = cardZone.scrollLeft <= 0;
+  sliderNextButton.disabled = cardZone.scrollLeft >= maxScrollLeft - 1;
+}
 
-cardZone.addEventListener('wheel', (event) => {
-  if (Math.abs(event.deltaY) <= Math.abs(event.deltaX)) return;
-  cardZone.scrollLeft += event.deltaY;
-  event.preventDefault();
-}, { passive: false });
+function getCardStep() {
+  const card = cardZone.querySelector('.card-wrapper');
+  if (!card) return cardZone.clientWidth;
+  const cardStyles = getComputedStyle(card);
+  const cardWidth = card.getBoundingClientRect().width;
+  const gap = parseFloat(cardStyles.marginLeft) + parseFloat(cardStyles.marginRight);
+  return cardWidth + gap;
+}
 
-cardZone.addEventListener('pointerdown', (event) => {
-  isDragging = true;
-  dragStartX = event.clientX;
-  dragStartScroll = cardZone.scrollLeft;
-  cardZone.classList.add('dragging');
-  cardZone.setPointerCapture(event.pointerId);
-});
+function slideCards(direction) {
+  const step = getCardStep();
+  cardZone.scrollBy({ left: direction * step, behavior: 'smooth' });
+  window.setTimeout(updateSliderButtons, 250);
+}
 
-cardZone.addEventListener('pointermove', (event) => {
-  if (!isDragging) return;
-  const deltaX = event.clientX - dragStartX;
-  cardZone.scrollLeft = dragStartScroll - deltaX;
-});
-
-['pointerup', 'pointercancel', 'pointerleave'].forEach((eventName) => {
-  cardZone.addEventListener(eventName, (event) => {
-    if (!isDragging) return;
-    isDragging = false;
-    cardZone.classList.remove('dragging');
-    cardZone.releasePointerCapture(event.pointerId);
-  });
+sliderPrevButton.addEventListener('click', () => slideCards(-1));
+sliderNextButton.addEventListener('click', () => slideCards(1));
+cardZone.addEventListener('scroll', () => {
+  window.requestAnimationFrame(updateSliderButtons);
 });
 
 // ==============================
@@ -278,6 +274,8 @@ async function startDraw() {
       wrapper.appendChild(info);
     });
   });
+
+  updateSliderButtons();
 }
 
 drawButton.addEventListener('click', startDraw);
