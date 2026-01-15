@@ -242,6 +242,7 @@ async function startDraw() {
       wrapper.appendChild(info);
     });
   });
+
 }
 
 drawButton.addEventListener('click', startDraw);
