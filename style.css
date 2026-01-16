@@ -307,6 +307,17 @@ body, html {
   text-align: center;
 }
 
+.modal-image {
+  width: min(220px, 70vw);
+  height: auto;
+  border-radius: 12px;
+  align-self: center;
+}
+
+.modal-image.reversed {
+  transform: rotate(180deg);
+}
+
 .menu-button {
   background: rgba(255, 255, 255, 0.15);
   border: 1px solid rgba(255, 255, 255, 0.3);

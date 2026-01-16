@@ -13,6 +13,7 @@ const stockScreen = document.getElementById('stock-screen');
 const stockBackButton = document.getElementById('stock-back-button');
 const stockList = document.getElementById('stock-list');
 const effectModal = document.getElementById('effect-modal');
+const modalImage = document.getElementById('modal-image');
 const modalTitle = document.getElementById('modal-title');
 const modalText = document.getElementById('modal-text');
 const modalClose = document.getElementById('modal-close');
@@ -72,6 +73,10 @@ const stockCounts = new Map(); // Stock ajustable par carte
 function getEffectKey(currentMode, reversed) {
   if (!reversed) return currentMode;
   return `${currentMode}envers`;
+}
+
+function getStockKey(carte) {
+  return `${carte.name}::${carte.reversed ? 'reversed' : 'upright'}`;
 }
 
 // Crée et anime des cartes qui flottent sur l'écran d'accueil
@@ -270,6 +275,10 @@ async function startDraw() {
 
   // Affichage des cartes piochées
   currentDraw = tirage;
+  currentDraw.forEach((carte) => {
+    const key = getStockKey(carte);
+    stockCounts.set(key, (stockCounts.get(key) ?? 0) + 1);
+  });
   tirage.forEach((carte, index) => {
     const wrapper = document.createElement('div');
     wrapper.classList.add('card-wrapper', 'deal-animation');
@@ -355,7 +364,8 @@ function renderStockList() {
 
     const count = document.createElement('span');
     count.classList.add('stock-count');
-    const currentCount = stockCounts.get(carte.name) ?? 0;
+    const stockKey = getStockKey(carte);
+    const currentCount = stockCounts.get(stockKey) ?? 0;
     count.textContent = currentCount;
 
     const plusButton = document.createElement('button');
@@ -370,20 +380,23 @@ function renderStockList() {
     eyeButton.setAttribute('aria-label', `Voir l'effet de ${carte.name}`);
 
     minusButton.addEventListener('click', () => {
-      const value = Math.max(0, (stockCounts.get(carte.name) ?? 0) - 1);
-      stockCounts.set(carte.name, value);
+      const value = Math.max(0, (stockCounts.get(stockKey) ?? 0) - 1);
+      stockCounts.set(stockKey, value);
       count.textContent = value;
     });
 
     plusButton.addEventListener('click', () => {
-      const value = (stockCounts.get(carte.name) ?? 0) + 1;
-      stockCounts.set(carte.name, value);
+      const value = (stockCounts.get(stockKey) ?? 0) + 1;
+      stockCounts.set(stockKey, value);
       count.textContent = value;
     });
 
     eyeButton.addEventListener('click', () => {
       modalTitle.textContent = carte.reversed ? `${carte.name} (à l'envers)` : carte.name;
       modalText.textContent = carte.effectText || 'Aucun effet défini.';
+      modalImage.src = carte.image;
+      modalImage.alt = carte.reversed ? `${carte.name} à l'envers` : carte.name;
+      modalImage.classList.toggle('reversed', Boolean(carte.reversed));
       effectModal.classList.remove('hidden');
     });
 
