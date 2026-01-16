@@ -27,11 +27,28 @@
   <div id="result-screen" class="full-screen hidden">
     <canvas id="particle-canvas"></canvas>
     <button id="back-button" class="menu-button">Retour</button>
+    <button id="stock-button" class="menu-button hidden">Stock de combat</button>
     <canvas id="particle-canvas"></canvas>
     <div class="card-slider">
       <button id="slider-prev" class="slider-button" aria-label="Carte précédente">←</button>
       <div id="card-zone"></div>
       <button id="slider-next" class="slider-button" aria-label="Carte suivante">→</button>
+    </div>
+  </div>
+
+  <div id="stock-screen" class="full-screen hidden">
+    <button id="stock-back-button" class="menu-button">Retour au tirage</button>
+    <div class="stock-panel">
+      <h2>Stock de combat</h2>
+      <div id="stock-list" class="stock-list"></div>
+    </div>
+  </div>
+
+  <div id="effect-modal" class="modal hidden" role="dialog" aria-modal="true">
+    <div class="modal-content">
+      <button id="modal-close" class="menu-button">Fermer</button>
+      <h3 id="modal-title"></h3>
+      <p id="modal-text"></p>
     </div>
   </div>
 
