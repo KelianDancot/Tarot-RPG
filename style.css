@@ -291,6 +291,10 @@ body, html {
   z-index: 10;
 }
 
+.modal.hidden {
+  display: none;
+}
+
 .modal-content {
   background: rgba(10, 10, 10, 0.95);
   padding: 2rem;
